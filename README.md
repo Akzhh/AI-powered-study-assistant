@@ -1,72 +1,198 @@
-# AI-powered-study-assistant
-An intelligent and personalized learning companion that helps students study smarter, not harder!  
-This project uses **Artificial Intelligence (AI)**, **Natural Language Processing (NLP)**, and **Machine Learning** to provide **customized study plans**, instant doubt-solving, and progress tracking — all in one platform.  
+# 🤖 AI-Powered Study Assistant
+
+A comprehensive AI-powered study assistant that helps students learn more effectively through intelligent question answering, quiz generation, text summarization, and progress tracking.
+
+## ✨ Features
+
+- **📝 Question Answering**: Upload study materials and get instant answers to your questions using advanced RAG (Retrieval-Augmented Generation) technology
+- **🎯 Quiz Generation**: Automatically generate custom quizzes from your documents with multiple difficulty levels
+- **📄 Text Summarization**: Create concise summaries of lengthy documents and extract key points
+- **📊 Progress Tracking**: Monitor your learning progress with detailed analytics and performance insights
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.8 or higher
+- pip package manager
+
+### Installation
+
+1. **Clone or download the project files**
+2. **Create a virtual environment**
+   ```bash
+   python -m venv study_assistant_env
+   source study_assistant_env/bin/activate  # On Windows: study_assistant_env\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the application**
+   ```bash
+   streamlit run app.py
+   ```
+
+5. **Open your browser** to `http://localhost:8501`
+
+## 🛠️ Technology Stack
+
+- **Backend**: Python, Streamlit
+- **AI Models**: Hugging Face Transformers, Sentence Transformers
+- **Database**: SQLite
+- **Vector Search**: FAISS
+- **Document Processing**: PyPDF2, python-docx
+- **Visualization**: Plotly
+
+## 📁 Project Structure
+
+```
+ai-study-assistant/
+├── app.py                    # Main Streamlit application
+├── complete-dev-guide.md     # Comprehensive development guide  
+├── study_assistant_schema.sql # Database schema
+├── requirements.txt          # Python dependencies
+├── README.md                # This file
+└── data/                    # Data storage (created automatically)
+    └── study_assistant.db   # SQLite database
+```
+
+## 🎯 Usage Guide
+
+### 1. Question Answering
+1. Navigate to the "Question Answering" section
+2. Upload your study material (PDF, DOCX, or TXT)
+3. Wait for the document to be processed
+4. Ask questions about the content
+5. Receive instant answers with source citations
+
+### 2. Quiz Generation  
+1. Go to the "Quiz Generation" section
+2. Upload a document
+3. Configure quiz parameters (number of questions, difficulty)
+4. Generate and take the quiz
+5. Check answers and explanations
+
+### 3. Text Summarization
+1. Access the "Text Summarization" feature
+2. Upload a document or paste text
+3. Choose summary length and type
+4. Generate summary and key points
+
+### 4. Progress Dashboard
+1. View the "Progress Dashboard" 
+2. Monitor your learning metrics
+3. Track study streaks and achievements
+4. Analyze performance trends
+
+## 🔧 Advanced Configuration
+
+### Environment Variables
+Create a `.env` file for API keys (optional):
+```
+OPENAI_API_KEY=your_openai_key_here
+HUGGINGFACE_API_TOKEN=your_hf_token_here
+```
+
+### Model Configuration
+The app uses these AI models by default:
+- **Question Answering**: `distilbert-base-cased-distilled-squad`
+- **Embeddings**: `all-MiniLM-L6-v2`
+- **Summarization**: `facebook/bart-large-cnn`
+
+## 📊 Features Overview
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Document Upload | PDF, DOCX, TXT support | ✅ |
+| Question Answering | RAG-based Q&A system | ✅ |
+| Quiz Generation | AI-generated quizzes | ✅ |
+| Text Summarization | Extractive & Abstractive | ✅ |
+| Progress Tracking | Learning analytics | ✅ |
+| User Authentication | Login/Signup system | 🔄 |
+| Multi-language Support | Non-English documents | 🔄 |
+
+## 🚧 Development
+
+### Running Tests
+```bash
+python -m pytest tests/ -v
+```
+
+### Code Formatting
+```bash
+black app.py
+flake8 app.py
+```
+
+### Adding New Features
+1. Follow the architecture in `complete-dev-guide.md`
+2. Add new modules in separate files
+3. Import and integrate in `app.py`
+4. Update database schema if needed
+5. Add tests for new functionality
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable  
+5. Submit a pull request
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 🆘 Support
+
+- Check the comprehensive development guide: `complete-dev-guide.md`
+- Review the database schema: `study_assistant_schema.sql`
+- Open an issue for bugs or feature requests
+
+## 🚀 Deployment
+
+### Local Development
+```bash
+streamlit run app.py
+```
+
+### Docker Deployment
+```dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 8501
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+```
+
+### Cloud Deployment
+- **Streamlit Cloud**: Connect your GitHub repo
+- **Heroku**: Use the Docker configuration
+- **AWS/GCP**: Deploy with container services
+
+## 🎓 Educational Value
+
+This project demonstrates:
+- Modern AI integration in educational applications
+- RAG (Retrieval-Augmented Generation) implementation
+- Full-stack development with Python
+- Database design and management
+- User interface design with Streamlit
+- AI model integration and optimization
+
+Perfect for 2nd-year AI/Data Science students to learn practical AI application development!
+
+## 🔗 Additional Resources
+
+- [Streamlit Documentation](https://docs.streamlit.io)
+- [Hugging Face Transformers](https://huggingface.co/transformers)
+- [FAISS Documentation](https://github.com/facebookresearch/faiss)
+- [LangChain Documentation](https://python.langchain.com)
 
 ---
 
-## 📌 Overview
-The **AI-Powered Study Assistant** is designed to make studying more efficient, interactive, and stress-free.  
-Whether you’re preparing for **exams**, **learning new skills**, or just brushing up on knowledge, this assistant adapts to your needs and keeps you on track.  
-
----
-
-## 🎯 Features
-- 📅 **Personalized Learning Plans** – Tailored schedules based on syllabus, deadlines, and your pace.  
-- 💬 **Instant Q&A** – Ask any academic question and get AI-powered answers in real-time.  
-- 📄 **Smart Summarization** – Automatically condense textbooks, PDFs, and lecture notes.  
-- 📊 **Progress Tracking** – Monitor performance and get actionable improvement tips.  
-- 🎙 **Multi-Modal Support** – Text, voice, and image input (e.g., scan a math problem and get the solution).  
-
----
-
-## 🛠 Tech Stack
-- **AI & NLP** – Question understanding, note summarization, and conversational responses.  
-- **Machine Learning** – Study recommendations and performance optimization.  
-- **OCR (Optical Character Recognition)** – Extracting text from documents/images.  
-- **Web & Mobile Frameworks** – Cross-platform accessibility for both students and educators.  
-
----
-
-## 👥 Target Audience
-- 📚 School & University students  
-- 🏆 Competitive exam aspirants  
-- 🧠 Lifelong learners & self-study enthusiasts  
-
----
-
-## 🌟 Impact
-The **AI-Powered Study Assistant** reduces study stress, boosts productivity, and provides personalized academic support to make learning **smarter, faster, and more effective**.  
-With AI’s ability to adapt to each learner’s needs, education becomes more **accessible** and **engaging**.
-
----
-
-## 🚀 How It Works
-1. **Sign Up / Log In** to the platform.  
-2. **Set Your Goals** – Define your syllabus, exam dates, or learning objectives.  
-3. **Ask & Learn** – Use AI chat to solve doubts instantly.  
-4. **Track Progress** – View your study stats and suggested improvements.  
-5. **Stay Motivated** – Get reminders, productivity tips, and performance milestones.  
-
----
-
-## 📷 Screenshots / Demo  
-*(Add your app screenshots or GIFs here once ready)*
-
----
-
-## 📄 License
-This project is licensed under the **MIT License** – feel free to use, modify, and distribute.
-
----
-
-## 💡 Future Enhancements
-- AI-based **exam prediction** for performance analysis.  
-- Integration with **voice assistants** like Alexa & Google Assistant.  
-- **Gamification** for improved engagement.  
-- **Offline mode** for low-connectivity areas.
-
----
-
-> 📝 *Built with ❤️ to make studying smarter and more personalized for everyone.*
-
-
+**Built with ❤️ for AI/Data Science students**
