@@ -195,4 +195,4 @@ Perfect for 2nd-year AI/Data Science students to learn practical AI application 
 
 ---
 
-**Built with ❤️ for AI/Data Science students**
+**Built By Akash.B**
